@@ -172,7 +172,10 @@ user_data_fields = [
 # auth_hooks = [
 # 	"core_customization.auth.validate"
 # ]
-
-doctype_list_js = {
-	"Item" : "core_customization/custom_scripts/js/item_list.js",
+scheduler_events = {
+	"cron": {
+		"0/5 * * * *": [
+		"core_customization.custom_scripts.python.item_list.update_actual_qty"
+		]
+	}
 }
