@@ -1,7 +1,7 @@
 
 frappe.listview_settings['Item'] = {
     onload: function (list_view) {
-        const action = () => {
+    listview.page.add_menu_item(__("Update Actual Qty"), function () {
         frappe.call({
             method:
             "core_customization.custom_scripts.python.item_list.update_actual_qty",
@@ -13,7 +13,6 @@ frappe.listview_settings['Item'] = {
                 }
             }
         });
-        list_view.page.add_actions_menu_item(__('Update Actual Qty'), action, false);
-    }
+    });
 }
 }
