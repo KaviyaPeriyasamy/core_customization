@@ -1,4 +1,5 @@
 from erpnext.stock.dashboard.item_dashboard import get_data
+import frappe
 
 @frappe.whitelist()
 def update_actual_qty():
