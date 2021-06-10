@@ -25,6 +25,7 @@ frappe.ui.form.on('Customer', {
 });
 
 frappe.templates["customer-dashboard"] = ' \
+{% if(created_events.length !=0) %}\
 <h5 style="margin-top: 0px;">{{ __("Created Events Summary") }}</h5>\
 <table class="table table-bordered small">\
 	<thead>\
@@ -42,6 +43,8 @@ frappe.templates["customer-dashboard"] = ' \
         {% endfor %}\
 	</tbody>\
 </table>\
+{% endif %}\
+{% if(assigned_events.length !=0) %}\
 <h5 style="margin-top: 0px;">{{ __("Events as Participant") }}</h5>\
 <table class="table table-bordered small">\
 	<thead>\
@@ -59,4 +62,5 @@ frappe.templates["customer-dashboard"] = ' \
         {% endfor %}\
 	</tbody>\
 </table>\
+{% endif %}\
 ';
