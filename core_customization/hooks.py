@@ -173,3 +173,6 @@ user_data_fields = [
 # 	"core_customization.auth.validate"
 # ]
 
+doctype_list_js = {
+	"Item" : "core_customization/custom_scripts/js/item_list.js",
+}
