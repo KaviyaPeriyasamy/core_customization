@@ -11,14 +11,14 @@ frappe.ui.form.on('Customer', {
             },
             callback: function(data){
                 if (data.message) {
-                    if(data.message[0]){
+                    if(!$.isEmptyObject(data.message[0])){
                         let section = frm.dashboard.add_section(
                         frappe.render_template('events-created', {
                             created_events: data.message[0]
                         })
                         );
                     }
-                    if(data.message[1]){
+                    if(!$.isEmptyObject(data.message[1])){
                         let section = frm.dashboard.add_section(
                         frappe.render_template('events-as-partcipant', {
                             assigned_events: data.message[1]
