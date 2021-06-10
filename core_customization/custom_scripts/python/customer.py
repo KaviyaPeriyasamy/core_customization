@@ -7,5 +7,5 @@ def get_events(customer):
 	for row in created_event_list:
 		row['name'] = """<a href="#Form/Event/{0}">{1}</a>""".format(row['name'], row['name'])
 	for row in assigned_event_list:
-		row['name'] = """<a href="#Form/Event/{0}">{1}</a>""".format(row['parent'], row['parent'])
+		row['parent'] = """<a href="#Form/Event/{0}">{1}</a>""".format(row['parent'], row['parent'])
 	return [created_event_list, assigned_event_list]

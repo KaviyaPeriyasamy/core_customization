@@ -63,7 +63,7 @@ frappe.templates["events-as-partcipant"] = ' \
         {% for row in assigned_events %}\
 		<tr>\
 			<td>\
-				{{ row["name"] }}\
+				{{ row["parent"] }}\
 			</td>\
 		</tr>\
         {% endfor %}\
