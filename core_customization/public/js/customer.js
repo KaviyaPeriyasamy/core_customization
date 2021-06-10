@@ -13,7 +13,7 @@ frappe.ui.form.on('Customer', {
                 if (data.message) {
                     if(frm.doc.cf_no_of_newly_created_entries) {
                         let section = frm.dashboard.add_section(
-                            frappe.render_template('core_customization/custom_scripts/html/customer-dashboard.html', {
+                            frappe.render_template('customer-dashboard', {
                                 created_events: data.message[0],
                                 assigned_events: data.message[1]
                             })
