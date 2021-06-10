@@ -12,7 +12,7 @@ frappe.ui.form.on('Customer', {
             callback: function(data){
                 if (data.message) {
                     let section = frm.dashboard.add_section(
-                        frappe.render_template('core_customization/custom_scripts/html/customer-dashboard.html', {
+                        frappe.render_template('customer-dashboard', {
                             created_events: data.message[0],
                             assigned_events: data.message[1]
                         })
@@ -23,3 +23,40 @@ frappe.ui.form.on('Customer', {
         });
 	}
 });
+
+frappe.templates["customer-dashboard"] = ' \
+<h5 style="margin-top: 0px;">{{ __("Created Events Summary") }}</h5>\
+<table class="table table-bordered small">\
+	<thead>\
+		<tr>\
+			<td style="width: 50%">{{ __("Event") }}</td>\
+		</tr>\
+	</thead>\
+	<tbody>\
+        {% for row in created_events %}\
+		<tr>\
+			<td>\
+				{{ row["name"] }}\
+			</td>\
+		</tr>\
+        {% endfor %}\
+	</tbody>\
+</table>\
+<h5 style="margin-top: 0px;">{{ __("Events as Participant") }}</h5>\
+<table class="table table-bordered small">\
+	<thead>\
+		<tr>\
+			<td style="width: 50%">{{ __("Event") }}</td>\
+		</tr>\
+	</thead>\
+	<tbody>\
+        {% for row in assigned_events %}\
+		<tr>\
+			<td>\
+				{{ row["name"] }}\
+			</td>\
+		</tr>\
+        {% endfor %}\
+	</tbody>\
+</table>\
+';
