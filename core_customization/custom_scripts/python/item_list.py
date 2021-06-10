@@ -7,4 +7,5 @@ def update_actual_qty():
     for row in item_list:
         res = get_data(row['name'])
         frappe.db.set_value('Item',{'name':row['name']},'actual_qty',sum([row['actual_qty'] for row in res]))
+    frappe.log_error('Actual Qty Updated')
     return True
