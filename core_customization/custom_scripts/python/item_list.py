@@ -7,5 +7,10 @@ def update_actual_qty():
     for row in item_list:
         res = get_data(row['name'])
         frappe.db.set_value('Item',{'name':row['name']},'actual_qty',sum([row['actual_qty'] for row in res]))
-    frappe.log_error('Actual Qty Updated')
     return True
+
+def update_price_list_rate():
+    item_list = frappe.get_list('Item', {'price_list_rate': None})
+    for row in item_list:
+        price_list_rate = frappe.db.get_value('Item Price', {'item_code':row['name'], 'selling': 1}, 'price_list_rate')
+        frappe.db.set_value('Item',{'name':row['name']},'price_list_rate', price_list_rate)
